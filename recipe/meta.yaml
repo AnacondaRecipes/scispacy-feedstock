@@ -10,7 +10,8 @@ source:
   sha256: 12bd915a81712a6dd50284ee7518088a8dd2c75d69949ea1bd3df00aee763d69
 
 build:
-  skip: true  # [py<36]
+  # spacy is not available on s390x
+  skip: true  # [py<36 or (linux and s390x)]
   script: {{ PYTHON }} -m pip install . --no-deps --no-build-isolation -vv
   number: 0
 
